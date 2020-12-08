@@ -1,8 +1,14 @@
 class MoviesController < ApplicationController
+    before_action :find_movie, only: [:show, :edit, :update, :destory]
 
     def index
-        @movies = Movie.all
+        @movies = Movie.all.order("created_at DESC")
     end
+
+
+    def show
+    end
+
 
     def new
         @movie = Movie.new 
@@ -24,4 +30,7 @@ class MoviesController < ApplicationController
             params.require(:movie).permit(:title, :description, :director, :movie_length)
         end
 
+        def find_movie
+            @movie = Movie.find(params[:id])
+        end
 end
