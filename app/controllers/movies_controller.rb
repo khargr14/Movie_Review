@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
     def create
         @movie = Movie.new(movie_params)
 
-        if @movie.save #meaning create
+        if @movie.save #c
             redirect_to root_path
         else
             render 'new'       
@@ -36,10 +36,13 @@ class MoviesController < ApplicationController
 
     end
 
-    def destory
-        @movie.destory 
-        redirect_ root_path
-    end
+    def destroy
+        @movie = Movie.find(params[:id])
+        @movie.destroy
+        flash[:notice] = "Movie '#{@movie.title}' deleted."
+        redirect_to root_path
+      end
+  
 
 
     private
