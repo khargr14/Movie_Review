@@ -12,6 +12,7 @@ class MoviesController < ApplicationController
 
     def new
         @movie = current_user.movies.build
+        @categories = Category.all.map{ |c| [c.name, c.id] }
     end
 
     def create
