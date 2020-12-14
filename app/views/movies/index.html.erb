@@ -1,7 +1,10 @@
 <h1> MOVIE REVIEW</h1>
 
-<% @movies.each do |m|%>
-    <h3><%= link_to m.title, movie_path(m) %> </h3>
+<% @movies.each do |movie|%>
+    <a href="/movies/ <%= movie.id %>">
+        <%= image_tag movie.movie_img.url(:movie_index) %>
+    </a>
+
     
 <% end %>
 
