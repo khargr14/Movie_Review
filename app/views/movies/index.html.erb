@@ -1,11 +1,16 @@
-<h1> MOVIE REVIEW Testing this git </h1>
+<h1> MOVIE REVIEW  </h1>
 
-<% @movies.each do |movie|%>
-    <a href="/movies/ <%= movie.id %>">
-        <%= image_tag movie.movie_img.url(:movie_index) %>
-    </a>
 
+<div class="row">
+
+    <% @movies.each do |movie|%>
+
+     <div class="col-md-3">
+         <a href="/movies/ <%= movie.id %>">
+         <%= image_tag movie.movie_img.url(:movie_index), class: "movie" %>
+         </a>
+    </div>
     
-<% end %>
-
+    <% end %>
+</div>
 

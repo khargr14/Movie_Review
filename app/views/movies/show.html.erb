@@ -1,13 +1,26 @@
-<h2><%=  @movie.title %></h2>
-<div>
-<h5>Category: <%=  @movie.category.name %> </h5>
-<h6>Movie Length:   <%=  @movie.movie_length %> </h6>
-<h6>Director:       <%=  @movie.director %>   </h6>
-<h3>Description:    <%=  @movie.description %> </h3>
+<div class="row">
 
+    <div class="col-md-6">
+    <%= image_tag @movie.movie_img.url(:movie_show), class: "movie-show"%>
+    
 </div>
 
-<%= link_to "Home", root_path %>
+
+
+        
+    <h1><%=  @movie.title %></h1>
+    <p>Description:     <%=  @movie.description %>  </p>
+
+    <div class="col-md-8">
+        <h5>Category:       <%= @movie.category.name %> </h5>
+        <h6>Movie Length:   <%=  @movie.movie_length %> </h6>
+        <h6>Director:       <%=  @movie.director %>     </h6>
+        
+    </div>
+</div>
+
+
+<%= link_to "Back", root_path %>
 
 <% if user_signed_in? %>
 
