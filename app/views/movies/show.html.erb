@@ -5,13 +5,28 @@
     
 </div>
 
+<div>
+
+<div class="row">
+
+    <div class="col-md-10">
+
+        <div>
+            <%= link_to "Add Review", new_movie_review_path(@movie) %>
+        </div>
+
+
+    </div>
+</div>
+
 
 
         
     <h1><%=  @movie.title %></h1>
     <p>Description:     <%=  @movie.description %>  </p>
 
-    <div class="col-md-8">
+    <div class="col-md-10">
+    <%= link_to "Back", root_path %>
         <h5>Category:       <%= @movie.category.name %> </h5>
         <h6>Movie Length:   <%=  @movie.movie_length %> </h6>
         <h6>Director:       <%=  @movie.director %>     </h6>
@@ -20,7 +35,6 @@
 </div>
 
 
-<%= link_to "Back", root_path %>
 
 <% if user_signed_in? %>
 

@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
 
     def create
         @movie = current_user.movies.build(movie_params)
-        #byebug
+        
         @movie.category_id = params[:category_id]
 
         if @movie.save #c
