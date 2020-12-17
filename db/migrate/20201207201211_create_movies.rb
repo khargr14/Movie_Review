@@ -5,7 +5,7 @@ class CreateMovies < ActiveRecord::Migration[6.0]
       t.text :description
       t.string :director
       t.string :movie_length
-      t.integer :category_id
+      t.attachment :movie_img
       t.integer :user_id
 
       t.timestamps

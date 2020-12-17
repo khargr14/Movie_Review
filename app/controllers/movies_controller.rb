@@ -16,11 +16,10 @@ class MoviesController < ApplicationController
     end
 
     def create
-        
+        binding.pry
         @movie = current_user.movies.build(movie_params)
-        #byebug
-        @movie.category_id = params[:category_id]
-
+        @movie.user_id = current_user.id
+        #@movie.category_id = params[:category_id]
         if @movie.save #c
             redirect_to root_path
         else
@@ -54,7 +53,7 @@ class MoviesController < ApplicationController
 
     private
         def movie_params
-            params.require(:movie).permit(:title, :description, :director, :movie_length, :category_id, :movie_img)
+            params.require(:movie).permit(:title, :description, :director, :movie_length, :movie_img, :user_id)
         end
 
         def find_movie
