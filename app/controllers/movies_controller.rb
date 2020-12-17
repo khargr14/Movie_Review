@@ -12,12 +12,13 @@ class MoviesController < ApplicationController
 
     def new
         @movie = current_user.movies.build
-        @categories= Category.all.map{ |c| [c.name, c.id] }
+        @categories = Category.all.map { |c| [c.name, c.id] }
     end
 
     def create
-        @movie = current_user.movies.build(movie_params)
         
+        @movie = current_user.movies.build(movie_params)
+        #byebug
         @movie.category_id = params[:category_id]
 
         if @movie.save #c
@@ -28,7 +29,7 @@ class MoviesController < ApplicationController
     end
 
     def edit
-        @categories= Category.all.map{ |c| [c.name, c.id] }
+        @categories= Category.all.map { |c| [c.name, c.id] }
         
     end
 
