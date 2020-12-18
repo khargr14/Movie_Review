@@ -3,8 +3,16 @@
 #
 # Examples:
 #
-  movies = Movie.create([{ title: 'Star Wars' }, { title: 'Lord of the Rings' }])
+  movies = Movie.create([ 
+  { title: 'THe sound of music', description: 'musical', director: 'unknown', movie_length: '3 hours', user_id: 1 }, 
+  {},
+  {}
+  
+  
+  ])
   #director.create(name: 'Luke', movie: movies.first)
+
+
 
 
      
