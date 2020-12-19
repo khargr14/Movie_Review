@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
     before_action :find_movie 
-    before_action :find_review, only: [:edit, :update, :destory]
+    before_action :find_review, only: [:edit, :update, :destory,:show]
     before_action :authenticate_user!, only: [:new, :edit]
     
 
@@ -42,7 +42,8 @@ class ReviewsController < ApplicationController
         redirect_to movie_path(@movie)
     end
 
-
+    def show
+    end
 
 
     private
@@ -56,7 +57,6 @@ class ReviewsController < ApplicationController
     end
 
     def find_review     
-        
         @review = Review.find(params[:id])
     end
 

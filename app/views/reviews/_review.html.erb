@@ -3,10 +3,10 @@
 <p><%= review.comment %> </p>
 
         <% if user_signed_in? %>
+         <%= link_to "Show",  movie_review_path(review.movie,review ) %>
            <% if review.user_id == current_user.id %>
-
-                <%= link_to "Edit", edit_movie_review_path(review.movie, review)%>
-                <%= link_to "Delete", movie_review_path(review.movie, review), method: :delete, data: {confirm: "Are you sure"} %>
+           <%= link_to "| Edit", edit_movie_review_path(review.movie, review)%>
+                <%= link_to " | Delete", movie_review_path(review.movie, review), method: :delete, data: {confirm: "Are you sure"} %>
             <% end %>
         <% end %>
 

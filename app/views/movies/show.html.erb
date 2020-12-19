@@ -11,6 +11,10 @@
                     <h1><%=  @movie.title %></h1>
                  </tr>
               <tr>
+                <td><strong>Rating:</strong></td>
+                <td>   <%= @rating%></td>
+              </tr>
+              <tr>
                 <td><strong>Description:</strong></td>
                 <td>   <%=  @movie.description %></td>
               </tr>
@@ -28,25 +32,36 @@
               </tr>
             </tbody>
           </table>
-        </div>
+             <div>
+               <% if user_signed_in? %>
+                 <% if @movie.user_id == current_user.id %>
+                   <%= link_to "Edit",  edit_movie_path(@movie) %>
+                   <%= link_to "Delete", movie_path(@movie),  method: :delete %>
+                 <% end %>
+               <% end %>
+             </div>
+             <div>
+               <%= link_to "Add Review", new_movie_review_path(@movie) %>
+               <%= link_to "Back", root_path %>
+             </div>
+
+           </div>
       </div>
     </div>
    </div>
  </div>
-        <div>
-            <%= link_to "Add Review", new_movie_review_path(@movie) %>
-            <%= link_to "Back", root_path %>
-        </div>
-    
-        <div>
-            <% if user_signed_in? %>
-                <% if @movie.user_id == current_user.id %>
-                        <%= link_to "Edit",  edit_movie_path(@movie) %>
-                        <%= link_to "Delete", movie_path(@movie),  method: :delete %>
-                    <% end %> 
-                <% end %>
-            </div>
+<div class="row">
 
+  <% @movies.each do |movie|%>
+
+    <div class="col-sm-6 col-lg-4">
+      <a href="/movies/<%= movie.id %>">
+        <%= image_tag movie.movie_img.url(:movie_index), class: "movie" %>
+      </a>
+    </div>
+
+  <% end %>
+</div>
 
 
 

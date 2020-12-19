@@ -3,9 +3,8 @@
 <div class="row">
 
     <% @movies.each do |movie|%>
-
-     <div class="col-sm-6 col-md-3">
-         <a href="/movies/ <%= movie.id %>">
+    <div class="col-sm-6 col-md-4">
+         <a href="/movies/<%= movie.id %>">
          <%= image_tag movie.movie_img.url(:movie_index), class: "movie" %>
          </a>
     </div>
