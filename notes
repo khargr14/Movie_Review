@@ -27,3 +27,45 @@
         description: 'After falling for a pretty art teacher who has no short-term memory, a marine veterinarian has to win her over again every single day.',
         director: 'Peter Segal', 
         movie_length: '1h 39m'}])
+
+____________________________________________________________________________________________________________________________
+        my style information for the show page under moive 
+    <h2> testing</h2>
+
+
+
+<div class="row">
+
+
+    <div class="col-md-6">
+    <%= image_tag @movie.movie_img.url(:movie_show), class: "movie-show"%>
+</div>
+
+
+<div>
+
+<div class="row">
+    <div class="col-md-10">
+            
+        <div>
+            <%= link_to "Add Review", new_movie_review_path(@movie) %>
+            <%= link_to "Back", root_path %>
+        </div>
+         <%= render @movie.reviews %>
+    </div>
+</div>
+
+            
+            <h1><%=  @movie.title %></h1>
+            <p>Description:     <%=  @movie.description %>  </p>
+
+<div class="col-md-10">
+    
+      
+        <h6>Movie Length:   <%=  @movie.movie_length %> </h6>
+        <h6>Director:       <%=  @movie.director %>     </h6>
+        
+    </div>
+</div>
+
+___________________________________________________________________________________________________
