@@ -1,3 +1,5 @@
 <p ><h1 style="text-align: center">Review</h1> </p>
+<%= image_tag @movie.movie_img.url(:movie_show), class: "movie-show"%>
 <p> Rating: <%=@review.rating %></p>
 <p>Comment:  <%=@review.comment %></p>
+
