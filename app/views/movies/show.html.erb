@@ -50,17 +50,7 @@
     </div>
    </div>
  </div>
-<div class="row">
 
-  <% @movies.each do |movie|%>
-
-    <div class="col-sm-6 col-lg-4">
-      <a href="/movies/<%= movie.id %>">
-        <%= image_tag movie.movie_img.url(:movie_index), class: "movie" %>
-      </a>
-    </div>
-
-  <% end %>
 </div>
 
 
