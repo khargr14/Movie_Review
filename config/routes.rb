@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :reviews
   end
     resources :users, only: [:show, :index]
-
+ 
   root 'movies#index'
 end

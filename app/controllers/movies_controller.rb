@@ -4,11 +4,12 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.movies_desc_order
+    
   end
 
 
   def show
-    puts "##################{@movie.ratings}##############"
+    puts "###{@movie.ratings}##"
     @rating = @movie.ratings.inject(0){|sum,x| sum + x }/@movie.ratings.size rescue 0
     @movies = Movie.movies_desc_order
     if @movie.reviews.blank?
@@ -16,6 +17,7 @@ class MoviesController < ApplicationController
     else
         @average = @movie.reviews.average(:rating).round (2)
     end 
+    
   end
 
 

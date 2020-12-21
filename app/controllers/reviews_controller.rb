@@ -43,6 +43,7 @@ class ReviewsController < ApplicationController
     end
 
     def show
+        @reviews = Review.where(movie_id: @movie.id).order("created_at DESC")
     end
 
 
@@ -58,6 +59,7 @@ class ReviewsController < ApplicationController
 
     def find_review     
         @review = Review.find(params[:id])
+       # render
     end
 
 end

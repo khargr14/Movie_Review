@@ -1,4 +1,9 @@
 class Review < ApplicationRecord
     belongs_to :user
     belongs_to :movie 
-end
+
+    validates :rating, presence: true
+    validates :comment, presence: true, length: { in: 6..120 }
+
+   
+end 
