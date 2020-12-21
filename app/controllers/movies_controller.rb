@@ -17,20 +17,20 @@ class MoviesController < ApplicationController
     else
         @average = @movie.reviews.average(:rating).round (2)
     end 
-    
+  
   end
 
 
   def new
     @movie = current_user.movies.build
-    # @categories= Category.all.map { |c| [c.name, c.id] }
+    
   end
 
   def create
     # binding.pry
     @movie = current_user.movies.build(movie_params)
     @movie.user_id = current_user.id
-    # @movie.category_id = params[:category_id]
+ 
     if @movie.save # c
       redirect_to root_path
     else
@@ -39,12 +39,12 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    #  @categories= Category.all.map { |c| [c.name, c.id] }
+    
 
   end
 
   def update
-    # @movie.category_id = params[:category_id]
+    
     if @movie.update(movie_params)
       redirect_to movie_path(@movie)
     else

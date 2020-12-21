@@ -1,6 +1,6 @@
 class Movie < ApplicationRecord
     belongs_to :user
-  #  belongs_to :category
+  
     has_many :reviews
     has_many :users, through: :reviews
     scope :movies_desc_order, -> { all.order("created_at DESC") }
