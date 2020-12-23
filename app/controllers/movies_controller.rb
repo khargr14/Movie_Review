@@ -3,15 +3,14 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
   def index
-    @movies = Movie.movies_desc_order
-    
+    @movies = Movie.all.order created_at: :desc
   end
 
 
   def show
     puts "###{@movie.ratings}##"
     @rating = @movie.ratings.inject(0){|sum,x| sum + x }/@movie.ratings.size rescue 0
-    @movies = Movie.movies_desc_order
+    @movies = Movie.all.order created_at: :desc
     if @movie.reviews.blank?
         @average = 0
     else
