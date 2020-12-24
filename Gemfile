@@ -18,6 +18,7 @@ gem 'paperclip', '~> 6.1'
 #gem 'omniauth-google-oauth2'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'dotenv-rails'
 #gem 'omniauth-github'
 
 gem 'activerecord-session_store'

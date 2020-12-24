@@ -274,7 +274,10 @@ Devise.setup do |config|
   #config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
    #config.omniauth :google_oauth2, '872397245613-5a950rpk7grk0874p4a01aucu9n6s8ac.apps.googleusercontent.com', 'T3ohJzVNaSA0jCuURw1Iau9o', {}
    #config.omniauth :facebook, "242212753968640", "217a291cda3aaf9c71b2d95d37fe9fa3"
-   config.omniauth :facebook, ENV['242212753968640'], ENV['217a291cda3aaf9c71b2d95d37fe9fa3']
+   config.omniauth :facebook, ENV['FB_KEY'], ENV['FB_SECRET']
+   
+   
+   
    #config.omniauth :github, 'deeb682e56a2788d33d2', 'a351d38582de08af80e73d8e63585e3b1e9673d4', :scope => 'user:email'
 
 #config.omniauth :github, '872397245613-5a950rpk7grk0874p4a01aucu9n6s8ac.apps.googleusercontent.com', 'T3ohJzVNaSA0jCuURw1Iau9o', scope: 'user:email'
