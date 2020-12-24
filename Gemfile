@@ -15,11 +15,11 @@ gem 'simple_form', '~> 5.0', '>= 5.0.3'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'paperclip', '~> 6.1'
-
-gem 'omniauth'
-#gem 'omniauth-facebook'
-#gem 'omniauth-github'
 #gem 'omniauth-google-oauth2'
+gem 'omniauth'
+gem 'omniauth-facebook'
+#gem 'omniauth-github'
+
 gem 'activerecord-session_store'
 
 # Use SCSS for stylesheets
@@ -53,6 +53,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
+  gem "figaro"
+
 end
 
 group :test do
