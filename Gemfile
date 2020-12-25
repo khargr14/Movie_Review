@@ -20,6 +20,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 #gem 'omniauth-github'
+gem "mini_magick"
+
 
 gem 'activerecord-session_store'
 
