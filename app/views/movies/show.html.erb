@@ -3,8 +3,8 @@
     <div class="row">
    
       <div class="col-md-6">
-        <%= image_tag (@movie.cover_picture), class: "movie-show"%>
-
+      
+        <%= image_tag(@movie.cover_picture) if @movie.cover_picture.attached? %>
         
 
            <div class="table-responsive">
