@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
 
     def update
 
-
+        
         if @review.update( review_params)
             redirect_to  movie_path(@movie)
         else
