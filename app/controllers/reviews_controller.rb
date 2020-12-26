@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
 
 
     def new 
+        #flash.now[:notice] = "Invalid Rating or Comment"
         @review = Review.new
     end
 
@@ -14,13 +15,16 @@ class ReviewsController < ApplicationController
        # @review = current_user.movies.build_review
         @review.movie_id = @movie.id 
         @review.user_id = current_user.id
-
-        if @review.save
-            redirect_to  movie_path(@movie)
+        #if @review.save
+        if @review.valid?
+            redirect_to  movie_path(@movie), notice: 'Review was successfully created'
         else
-            render 'new'
-         end
-    end
+           # render 'new'
+            flash[:error] = @review.errors.full_messages
+            render 'new' 
+        end
+
+    end 
 
     def edit
         
@@ -30,9 +34,9 @@ class ReviewsController < ApplicationController
 
         
         if @review.update( review_params)
-            redirect_to  movie_path(@movie)
+            redirect_to  movie_path(@movie), notice: 'Review was successfully created'
         else
-            render 'edit'
+            render 'edit', notice: 'Please fill in areas'
         end
     end
     
