@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
   def index
  #  @movies = Movie.all.order created_at: :desc # have to refactor
   end
+  
 
 
   def show
