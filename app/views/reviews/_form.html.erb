@@ -2,8 +2,13 @@
     <div class="new-movie-form">
 
         <%= simple_form_for ([ @movie, @movie.reviews.build ]) do |f| %>
+      
+        <%if !!flash[:error] %>
+        <%= flash[:error].each do |error|%>
+        <% end %>
+        <% end %>
            
-            <%=f.input :rating, collection: 1..5 %>
+            <%=f.input :rating, collection: 1..5  %>
             <%=f.input :comment %>
             <%=f.button :submit %>
         <%end%>

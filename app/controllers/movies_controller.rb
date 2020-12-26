@@ -1,17 +1,22 @@
 class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destory]
   before_action :authenticate_user!, only: [:new, :edit]
+<<<<<<< HEAD
   
+=======
+  before_action :movie_order, only: [:index, :show, :edit, :destory]
+>>>>>>> image
 
   def index
-    @movies = Movie.all.order created_at: :desc
+ #  @movies = Movie.all.order created_at: :desc # have to refactor
   end
+  
 
 
   def show
     puts "###{@movie.ratings}##"
     @rating = @movie.ratings.inject(0){|sum,x| sum + x }/@movie.ratings.size rescue 0
-    @movies = Movie.all.order created_at: :desc
+   #@movies = Movie.all.order created_at: :desc # have to refactor
     if @movie.reviews.blank?
         @average = 0
     else
@@ -70,5 +75,9 @@ class MoviesController < ApplicationController
 
   def find_movie
     @movie = Movie.find(params[:id])
+  end
+
+  def movie_order
+    @movies = Movie.all.order created_at: :desc
   end
 end
