@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
        # @review = current_user.movies.build_review
         @review.movie_id = @movie.id 
         @review.user_id = current_user.id
-        #if @review.save
+        @review.save
         if @review.valid?
             redirect_to  movie_path(@movie), notice: 'Review was successfully created'
         else
