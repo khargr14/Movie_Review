@@ -59,7 +59,7 @@ class MoviesController < ApplicationController
     redirect_to root_path
     end
 
-
+    # have to add the :cover_picture coming from  has_one_attached
 
     private
   def movie_params
