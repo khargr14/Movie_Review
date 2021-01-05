@@ -1,14 +1,10 @@
 class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destory]
   before_action :authenticate_user!, only: [:new, :edit]
-<<<<<<< HEAD
-  
-=======
   before_action :movie_order, only: [:index, :show, :edit, :destory]
->>>>>>> image
-
   def index
  #  @movies = Movie.all.order created_at: :desc # have to refactor
+   
   end
   
 
