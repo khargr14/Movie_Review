@@ -1,12 +1,12 @@
 <h1> MOVIE REVIEW  </h1>
 
 <div class="row">
-
+    <% @movies.inspect %>
     <% @movies.each do |movie|%>
     <div class="col-sm-6 col-md-4">
          <a href="/movies/<%= movie.id %>">
         
-        <%= image_tag movie.movie_img.url(:movie_index), class: "movie-index"%>
+        <%= image_tag movie.cover_picture, class: "movie-index"%>
 
       
        
