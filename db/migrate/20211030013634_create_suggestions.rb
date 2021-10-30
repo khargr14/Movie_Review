@@ -4,7 +4,7 @@ class CreateSuggestions < ActiveRecord::Migration[6.0]
       t.string :title
       t.text :description
       t.text :comment
-
+      t.attachment :movie_img
       t.timestamps
     end
   end

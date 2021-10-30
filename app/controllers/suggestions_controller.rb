@@ -5,6 +5,7 @@ class SuggestionsController < ApplicationController
   # GET /suggestions.json
   def index
     @suggestions = Suggestion.all
+   # @suggestion = current_user.suggestions.build
   end
 
   # GET /suggestions/1
