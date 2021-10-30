@@ -7,9 +7,6 @@ class Review < ApplicationRecord
     default_scope { order(created_at: :desc)}
    
 
-    def blank_stars
-        5 - rating.to_i
-       end
-
+   
 
 end 
