@@ -1,3 +1,11 @@
+<style>
+img {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+    margin-bottom: 40px;
+}
+</style>
 <h1> MOVIE REVIEW  </h1>
 
 <div class="row">
@@ -6,7 +14,7 @@
     <div class="col-sm-6 col-md-4">
          <a href="/movies/<%= movie.id %>">
         
-        <%= image_tag movie.cover_picture, class: "movie-index"%>
+        <%= image_tag movie.cover_picture, class: "movie-index w-100"%>
 
       
        
