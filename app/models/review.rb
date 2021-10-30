@@ -6,4 +6,10 @@ class Review < ApplicationRecord
     validates :comment, presence: true, length: { in: 6..120 }
     default_scope { order(created_at: :desc)}
    
+
+    def blank_stars
+        5 - rating.to_i
+       end
+
+
 end 

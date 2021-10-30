@@ -6,3 +6,10 @@
 <p>Comment:  <%=@review.comment %></p>
  <%= link_to "Back", root_path %>
   
+<p ><h1 style="text-align: right">Likes</h1> </p>
+
+  <%= button_to "Like", { :action => "new" }, :method => :get %>      
+<%= image_tag(@movie.cover_picture) if @movie.cover_picture.attached? %>
+<p> Rating: <%=@review.rating %></p>
+<p>Comment:  <%=@review.comment %></p>
+ <%= link_to "Back", root_path %>
