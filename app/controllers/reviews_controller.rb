@@ -54,7 +54,7 @@ class ReviewsController < ApplicationController
     private
     
     def review_params
-        params.require(:review).permit(:rating, :comment, :user_id, :moive_id, :cover_picture)
+        params.require(:review).permit(:rating, :comment, :user_id, :moive_id, :cover_picture,  :movie_img_attachment)
     end
 
     def find_movie

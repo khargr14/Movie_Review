@@ -3,6 +3,8 @@ class Movie < ApplicationRecord
     has_one_attached :cover_picture
     has_many :reviews
     has_many :users, through: :reviews
+    has_many :suggestions
+    has_one_attached :movie_img
 
    
     has_attached_file :movie_img, styles: { movie_index: "250x350>", movie_show: "325x475>" }, default_url: "/images/:style/missing.png"

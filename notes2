@@ -1,0 +1,111 @@
+class SuggestionsController < ApplicationController
+  before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
+
+  # GET /suggestions
+  # GET /suggestions.json
+  def index
+    @suggestions = Suggestion.all
+   # @suggestion = current_user.suggestions.build
+  end
+
+  # GET /suggestions/1
+  # GET /suggestions/1.json
+  def show
+  end
+
+  # GET /suggestions/new
+  def new
+    @suggestion = Suggestion.new
+  end
+
+  # GET /suggestions/1/edit
+  def edit
+  end
+
+  # POST /suggestions
+  # POST /suggestions.json
+  def create
+    @suggestion = Suggestion.new(suggestion_params)
+
+    respond_to do |format|
+      if @suggestion.save
+        format.html { redirect_to @suggestion, notice: 'Suggestion was successfully created.' }
+        format.json { render :show, status: :created, location: @suggestion }
+      else
+        format.html { render :new }
+        format.json { render json: @suggestion.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /suggestions/1
+  # PATCH/PUT /suggestions/1.json
+  def update
+    respond_to do |format|
+      if @suggestion.update(suggestion_params)
+        format.html { redirect_to @suggestion, notice: 'Suggestion was successfully updated.' }
+        format.json { render :show, status: :ok, location: @suggestion }
+      else
+        format.html { render :edit }
+        format.json { render json: @suggestion.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /suggestions/1
+  # DELETE /suggestions/1.json
+  def destroy
+    @suggestion.destroy
+    respond_to do |format|
+      format.html { redirect_to suggestions_url, notice: 'Suggestion was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_suggestion
+      @suggestion = Suggestion.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def suggestion_params
+      params.require(:suggestion).permit(:title, :description, :movie_img, :comment)
+    end
+end
+
+
+
+-----------------------------------
+view - suggestions- index
+<p id="notice"><%= notice %></p>
+
+<h1>Suggestions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Movie img</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @suggestions.each do |suggestion| %>
+      <tr>
+        <td><%= suggestion.title %></td>
+        <td><%= suggestion.description %></td>
+        <td><%= suggestion.movie_img %></td>
+        <td><%= suggestion.comment %></td>
+        <td><%= link_to 'Show', suggestion %></td>
+        <td><%= link_to 'Edit', edit_suggestion_path(suggestion) %></td>
+        <td><%= link_to 'Destroy', suggestion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -1,33 +1,27 @@
-<p id="notice"><%= notice %></p>
+<style>
+img {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+    margin-bottom: 40px;
+}
+</style>
+<h1> Top Suggestions </h1>
 
-<h1>Suggestions</h1>
+<div class="row">
+    <% @suggestions.inspect %>
+    <% @suggestions.each do |suggestion|%>
+    <div class="col-sm-6 col-md-4">
+         <a href="/suggestions/<%= suggestion.id %>">
+        
+        <%= image_tag suggestion.cover_picture, class: "movie-index w-100"%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Movie img</th>
-      <th>Comment</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @suggestions.each do |suggestion| %>
-      <tr>
-        <td><%= suggestion.title %></td>
-        <td><%= suggestion.description %></td>
-        <td><%= suggestion.movie_img %></td>
-        <td><%= suggestion.comment %></td>
-        <td><%= link_to 'Show', suggestion %></td>
-        <td><%= link_to 'Edit', edit_suggestion_path(suggestion) %></td>
-        <td><%= link_to 'Destroy', suggestion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      
+       
+        
+         
+           
+    </div>
+    
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Suggestion', new_suggestion_path %>
+</div>
