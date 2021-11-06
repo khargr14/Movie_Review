@@ -83,7 +83,7 @@ def new
 end
 
 def create
-  @suggestion = Review.new(suggestion_params)
+  @suggestion = Suggestion.new(suggestion_params)
  # @review = current_user.movies.build_review
   # @suggestion.movie_id = @movie.id 
   @suggestion.user_id = current_user.id
