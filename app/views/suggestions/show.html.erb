@@ -12,7 +12,8 @@
 
 <p>
   <strong>Movie img:</strong>
-  <%= link_to @suggestion.movie_img.filename, @suggestion.movie_img if @suggestion.movie_img.attached? %>
+  <%# <%= link_to @suggestion.movie_img.filename, @suggestion.movie_img if @suggestion.movie_img.attached? %> %>
+  <%= image_tag(@suggestion.cover_picture) if @suggestion.cover_picture.attached? %>
 </p>
 
 <p>
