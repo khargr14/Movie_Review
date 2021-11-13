@@ -23,19 +23,37 @@ class SuggestionsController < ApplicationController
 
   # POST /suggestions
   # POST /suggestions.json
-  def create
-    @suggestion = Suggestion.new(suggestion_params)
+  # def create
+  #   @suggestion = Suggestion.new(suggestion_params)
 
-    respond_to do |format|
-      if @suggestion.save
-        format.html { redirect_to @movie, notice: 'Suggestion was successfully created.' }
-        format.json { render :show, status: :created, location: @suggestion }
-      else
-        format.html { render :new }
-        format.json { render json: @suggestion.errors, status: :unprocessable_entity }
-      end
+  #   respond_to do |format|
+  #     if @suggestion.save
+  #       format.html { redirect_to @movie, notice: 'Suggestion was successfully created.' }
+  #       format.json { render :show, status: :created, location: @suggestion }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @suggestion.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
+  def create
+    # binding.pry
+    @suggestion = current_user.suggestions.build(suggestion_params)
+    @suggestion.user_id = current_user.id
+ 
+    if @suggestion.save # c
+      redirect_to root_path
+    else
+      render 'new'
     end
   end
+
+
+
+
+
+
 
   # PATCH/PUT /suggestions/1
   # PATCH/PUT /suggestions/1.json
