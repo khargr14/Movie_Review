@@ -55,7 +55,8 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
+     @movie = Movie.find(params[:id])
+    # @movie = current_user.movies.find(params[:id])
     @movie.destroy
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to root_path

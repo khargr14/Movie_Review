@@ -71,13 +71,23 @@ class SuggestionsController < ApplicationController
 
   # DELETE /suggestions/1
   # DELETE /suggestions/1.json
+  # def destroy
+  #   @suggestion.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to suggestions_url, notice: 'Suggestion was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
+
+
   def destroy
+    # @suggestion = Suggestion.find(params[:id])
+    @suggestion = current_user.suggestions.find(params[:id])
     @suggestion.destroy
-    respond_to do |format|
-      format.html { redirect_to suggestions_url, notice: 'Suggestion was successfully destroyed.' }
-      format.json { head :no_content }
+    flash[:notice] = "Movie Suggestion '#{@suggestion.title}' deleted."
+    redirect_to root_path
     end
-  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

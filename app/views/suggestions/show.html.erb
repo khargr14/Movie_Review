@@ -23,3 +23,19 @@
 
 <%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
 <%= link_to 'Back', suggestions_path %>
+  </table>
+             <div>
+               <% if user_signed_in? %>
+                 <% if @suggestion.user_id == current_user.id %>
+                   <%= link_to "Edit",  edit_movie_path(@suggestion) %>
+                   <%= link_to "Delete", movie_path(@suggestion),  method: :delete %>
+                 <% end %>
+               <% end %>
+             </div>
+             <div>
+               <%# <%= link_to "Add Review", new_movie_review_path(@movie) %> %>
+               <%= link_to "Back", root_path %>
+             </div>
+
+           </div>
+      </div>
