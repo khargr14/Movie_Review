@@ -50,7 +50,8 @@ class SuggestionsController < ApplicationController
     @suggestion.user_id = current_user.id
  
     if @suggestion.save # c
-      redirect_to root_path
+      redirect_to suggestions_path
+      # root_path
     else
       render 'new'
     end
