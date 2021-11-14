@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+ <div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+   
+      <div class="col-md-6">
+      
+        <%= image_tag(@suggestion.cover_picture) if @suggestion.cover_picture.attached? %>
+        
+
+
 <p>
   <strong>Title:</strong>
   <%= @suggestion.title %>
@@ -10,11 +20,11 @@
   <%= @suggestion.description %>
 </p>
 
-<p>
-  <strong>Movie img:</strong>
-  <%# <%= link_to @suggestion.movie_img.filename, @suggestion.movie_img if @suggestion.movie_img.attached? %> %>
-  <%= image_tag(@suggestion.cover_picture) if @suggestion.cover_picture.attached? %>
-</p>
+<%# <p>
+  <strong>Movie img:</strong> %>
+  <%# <%= link_to @suggestion.movie_img.filename, @suggestion.movie_img if @suggestion.movie_img.attached? %> 
+  <%# <%= image_tag(@suggestion.cover_picture) if @suggestion.cover_picture.attached? %>
+</p> 
 
 <p>
   <strong>Comment:</strong>
@@ -27,15 +37,20 @@
              <div>
                <% if user_signed_in? %>
                  <% if @suggestion.user_id == current_user.id %>
-                   <%= link_to "Edit",  edit_movie_path(@suggestion) %>
+                   <%# <%= link_to "Edit",  edit_movie_path(@suggestion) %> 
                    <%= link_to "Delete", movie_path(@suggestion),  method: :delete %>
                  <% end %>
                <% end %>
              </div>
              <div>
-               <%# <%= link_to "Add Review", new_movie_review_path(@movie) %> %>
+               <%# <%= link_to "Add Review", new_movie_review_path(@movie) %> 
                <%= link_to "Back", root_path %>
              </div>
 
            </div>
       </div>
+
+
+
+
+

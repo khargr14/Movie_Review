@@ -1,6 +1,13 @@
 class SuggestionsController < ApplicationController
   before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
 
+
+  # before_action :find_movie, only: [:show, :edit, :update, :destory]
+  before_action :authenticate_user!, only: [:new, :edit]
+  # before_action :movie_order, only: [:index, :show, :edit, :destory]
+
+
+
   # GET /suggestions
   # GET /suggestions.json
   def index
@@ -81,8 +88,8 @@ class SuggestionsController < ApplicationController
 
 
   def destroy
-    # @suggestion = Suggestion.find(params[:id])
-    @suggestion = current_user.suggestions.find(params[:id])
+     @suggestion = Suggestion.find(params[:id])
+    # @suggestion = current_user.suggestions.find(params[:id])
     @suggestion.destroy
     flash[:notice] = "Movie Suggestion '#{@suggestion.title}' deleted."
     redirect_to root_path
